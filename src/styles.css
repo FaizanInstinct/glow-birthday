@@ -214,3 +214,80 @@ body { color: var(--ink); font-size: 15px; }
 @media (max-width: 520px) {
   .constellation-star { width: 76px; height: 76px; }.constellation-star .world-ring { inset: -11px -23px; }.constellation-star strong { max-width: 70px; overflow: hidden; text-overflow: ellipsis; }.night-sky .sky-label { font-size: 16px; }.secret-stamp { display: none; }.ribbon-cover h3 { padding-right: 0; }.ribbon-stage { min-height: 500px; }.card-track { bottom: 11%; }.ribbon-card { width: 150px; height: 70px; padding-left: 40px; }.card-planet { left: 9px; }.cake { min-width: 175px; }.approach-hand { width: 44%; }.real-hand { width: 60%; }
 }
+
+/* APPROVED VECTOR + MOTION PASS */
+body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
+.app-shell { background: radial-gradient(circle at 82% -12%, rgba(117,65,155,.16) 0, transparent 30%), radial-gradient(circle at 4% 72%, rgba(194,65,132,.12) 0, transparent 28%), linear-gradient(145deg,#10091f 0%,#1a0e31 55%,#25113d 100%); }
+.ambient-one { display: none; }
+.hero-art { animation: none; }
+.planet { animation: hero-planet-orbit 24s linear infinite; transform-origin: 50% 50%; will-change: transform; }
+.planet-ring { animation: hero-ring-orbit 24s linear infinite; transform-origin: 50% 50%; }
+@keyframes hero-planet-orbit { from { transform: translate(-45%,-54%) rotate(0deg); } to { transform: translate(-45%,-54%) rotate(360deg); } }
+@keyframes hero-ring-orbit { from { transform: rotate(-17deg); } to { transform: rotate(343deg); } }
+.welcome-copy h1, .chapter-heading h2, .finale-copy h2 { letter-spacing: -.045em; }
+.welcome-body, .chapter-heading > p:last-child, .orbit-copy p, .ribbon-side p, .drawer-copy, .mode-copy p, .gift-copy p { color: #d0c4db; }
+
+/* Galaxy hearts replace the old planet buttons */
+.constellation-star { overflow: visible; background: transparent; border: 0; box-shadow: none; animation: world-drift 7s ease-in-out infinite alternate; }
+.constellation-star img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; animation: heart-galaxy-spin 18s linear infinite; filter: drop-shadow(0 0 15px rgba(255,140,204,.35)); }
+.constellation-star .world-ring { z-index: 0; inset: -17px -30px; }
+.constellation-star i { display: none; }
+.constellation-star strong, .constellation-star small { z-index: 3; text-shadow: 0 2px 10px #160b2b; }
+.constellation-star strong { margin-top: 82px; }
+.constellation-star:hover, .constellation-star.found { background: transparent; box-shadow: none; transform: scale(1.12); }
+.constellation-star:hover img, .constellation-star.found img { filter: drop-shadow(0 0 26px rgba(255,166,218,.8)); }
+@keyframes heart-galaxy-spin { to { transform: rotate(360deg); } }
+
+/* Ribbon has an intentional clear lane between note copy and moving card */
+.ribbon-stage { padding-bottom: 28%; }
+.ribbon-cover { max-width: 460px; }
+.ribbon-cover p { max-width: 360px; }
+.card-track { bottom: 8%; }
+.ribbon-hint { bottom: 2.5%; }
+.ribbon-burst { z-index: 5; }
+.ribbon-done .ribbon-cover { transform: translateY(-10px); }
+
+/* SVG cake artwork */
+.cake-stage, .candle-stage { min-height: 450px; }
+.cake-vector { position: relative; z-index: 2; width: min(82%, 470px); height: auto; filter: drop-shadow(0 22px 22px rgba(0,0,0,.3)); transition: transform .4s var(--ease); }
+.cake-stage:not(.cake-is-cut) .cake-vector { animation: cake-breathe 3.8s ease-in-out infinite; }
+.cake-is-cut .cake-vector { animation: vector-cake-slice 1.05s var(--ease) both; }
+.cake-stage.cake-is-cut::after { content: '✦  ♥  ✧  ♥  ✦'; position: absolute; z-index: 7; inset: 16% 0 auto; color: #ffe0a9; font-size: 24px; letter-spacing: 24px; animation: cake-sparkle-pop 1.8s ease both; }
+.candle-vector { width: min(84%, 480px); }
+.candle-stage:not(.candles-out) .candle-vector { animation: cake-breathe 3.8s ease-in-out infinite; }
+.candles-out .candle-vector { animation: candle-blow 1.05s var(--ease) both; }
+@keyframes cake-breathe { 0%,100% { transform: translateY(3px) rotate(-.5deg); } 50% { transform: translateY(-5px) rotate(.5deg); } }
+@keyframes vector-cake-slice { 0% { transform: translateX(0) rotate(0); } 35% { transform: translateX(-7px) rotate(-1deg); } 65% { transform: translateX(9px) rotate(1.5deg); } 100% { transform: translateX(0) rotate(0); } }
+@keyframes cake-sparkle-pop { 0% { opacity: 0; transform: scale(.4) translateY(12px); } 25% { opacity: 1; } 100% { opacity: 0; transform: scale(1.1) translateY(-18px); } }
+@keyframes candle-blow { 0% { transform: scale(1); } 40% { transform: scale(1.04) translateX(8px); } 100% { transform: scale(1); } }
+
+/* Vector hand and ring travel toward the finger from opposite sides */
+.ring-hand-scene { background: radial-gradient(circle at 50% 50%, rgba(255,159,206,.1), transparent 40%); }
+.vector-hand { position: absolute; z-index: 2; width: min(300px, 48%); height: auto; left: 12%; bottom: 9%; filter: drop-shadow(0 24px 22px rgba(0,0,0,.35)); transform: translateX(-22%) rotate(-7deg); animation: vector-hand-approach 1.35s var(--ease) both; }
+.ring-hand-scene .ring-object { position: absolute; z-index: 4; left: 54%; top: 41%; width: 58px; height: 76px; opacity: 0; transform: translateX(130px) rotate(-15deg) scale(.75); transition: opacity .45s var(--ease), transform 1.25s var(--ease); }
+.ring-hand-scene.ring-placed .vector-hand { animation: vector-hand-settle 1s var(--ease) both; }
+.ring-hand-scene.ring-placed .ring-object { opacity: 1; transform: translateX(0) rotate(-15deg) scale(1); filter: drop-shadow(0 0 18px #ffe3a4); }
+.ring-hand-scene.ring-placed .ring-object::after { content: '✦'; position: absolute; inset: -30px; color: #ffe3a4; font-size: 30px; animation: ring-flash 1.4s ease-in-out 2; }
+@keyframes vector-hand-approach { from { transform: translateX(-50%) rotate(-11deg); opacity: 0; } to { transform: translateX(-22%) rotate(-7deg); opacity: 1; } }
+@keyframes vector-hand-settle { 0% { transform: translateX(-22%) rotate(-7deg); } 50% { transform: translateX(-15%) rotate(-4deg) scale(1.03); } 100% { transform: translateX(-22%) rotate(-7deg); } }
+@keyframes ring-flash { 0%,100% { opacity: 0; transform: scale(.6); } 35% { opacity: 1; transform: scale(1.1); } }
+
+/* Themed confetti/hearts now shower gently before fading */
+.confetti-layer { z-index: 25; pointer-events: none; }
+.confetti-layer span { animation-duration: 3.4s !important; text-shadow: 0 0 10px currentColor; }
+.confetti-layer span:nth-child(3n) { font-size: 18px; }
+.confetti-layer span:nth-child(4n) { font-size: 12px; }
+
+@media (max-width: 900px) {
+  .vector-hand { width: min(270px, 62%); left: 7%; }
+  .ring-hand-scene .ring-object { left: 55%; top: 42%; }
+  .ribbon-stage { padding-bottom: 34%; }
+}
+@media (max-width: 520px) {
+  .welcome-copy h1 { line-height: .87; }
+  .card-track { bottom: 8%; }
+  .ribbon-stage { padding-bottom: 40%; }
+  .vector-hand { width: 72%; left: -1%; bottom: 15%; }
+  .ring-hand-scene .ring-object { left: 55%; top: 39%; }
+  .cake-vector, .candle-vector { width: 94%; }
+}
