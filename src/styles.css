@@ -486,3 +486,6 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
   .cake-main-art, .cake-slice-art { width: 88%; }
   .chapter-heading > p:last-child { font-size: 13px; }
 }
+
+.asset-attribution { position: absolute; right: 12px; bottom: 10px; z-index: 12; color: rgba(255,255,255,.52); font-size: 8px; letter-spacing: .03em; }
+.asset-attribution a { color: #bffcff; text-decoration: underline; text-underline-offset: 2px; }
