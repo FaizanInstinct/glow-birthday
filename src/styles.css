@@ -423,3 +423,66 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
   82% { opacity: .45; transform: translateX(0) rotate(-16deg) scale(1); }
   100% { opacity: 0; transform: translateX(0) rotate(-14deg) scale(.96); }
 }
+
+
+/* BIRTHDAY 10 POLISH PASS */
+.brand-heart { width: 42px; height: 42px; object-fit: contain; filter: drop-shadow(0 0 9px rgba(67,233,243,.55)); animation: cyan-heart-pulse 3.6s ease-in-out infinite; }
+.brand-lockup strong { font-size: 12px; }
+.brand-lockup small { font-size: 16px; color: #b9fbff; }
+@keyframes cyan-heart-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+.topbar, .journey-rail, .chapter-content { font-weight: 500; }
+.progress-label, .progress-note, .rail-title, .panel-index { font-weight: 700; }
+.chapter-heading > p:last-child, .welcome-body, .orbit-copy p, .ribbon-side p, .drawer-copy, .choice-intro p, .mode-copy p, .gift-copy p { font-weight: 600; }
+.rail-dot { font-size: 12px; font-weight: 600; }
+.rail-dot i { font-size: 10px; }
+.panel-index { font-size: 10px; }
+
+/* Heart-shaped black planet slider and heart-shaped birthday reveal */
+.heart-slider { width: 132px; height: 112px; padding: 18px 14px 10px; border: 1px solid rgba(167,251,255,.55); background: radial-gradient(circle at 36% 24%, #344452 0 5%, transparent 6%), radial-gradient(circle at 65% 66%, #111821 0, #05070d 72%); clip-path: path('M66 108 10 54C-12 31 7 4 29 8c17 3 27 15 37 28C76 23 86 11 103 8c22-4 41 23 15 48Z'); border-radius: 0; box-shadow: 0 0 0 8px rgba(86,238,247,.08), 0 0 32px rgba(61,220,232,.3); }
+.heart-slider::before { content: '✦'; position: absolute; top: 18px; left: 57px; color: #8fffff; font-size: 14px; }
+.heart-slider .card-planet { display: none; }
+.heart-slider strong, .heart-slider small { position: relative; z-index: 2; margin-left: 2px; text-align: center; }
+.heart-slider strong { font-size: 9px; letter-spacing: .12em; }
+.heart-slider small { color: #b5e9ec; }
+.ribbon-pumping .heart-slider { animation: heart-slider-beat .58s ease-in-out infinite alternate; }
+@keyframes heart-slider-beat { from { transform: translate(-50%,-50%) scale(1); } to { transform: translate(-50%,-50%) scale(1.1); } }
+.ribbon-heart-popup { position: absolute; z-index: 8; left: 50%; top: 47%; width: min(310px, 70%); min-height: 220px; padding: 62px 38px 28px; display: grid; place-items: center; align-content: center; gap: 8px; text-align: center; opacity: 0; transform: translate(-50%,-45%) scale(.4); pointer-events: none; clip-path: path('M155 214 21 101C-24 63 6 5 58 17c42 9 70 47 97 78 27-31 55-69 97-78 52-12 82 46 37 84Z'); background: radial-gradient(circle at 35% 28%, #2a4a55, #0b131c 68%); border: 1px solid rgba(145,249,255,.8); box-shadow: 0 0 0 14px rgba(86,238,247,.08), 0 0 52px rgba(86,238,247,.38); transition: opacity .45s ease, transform .75s var(--ease); }
+.ribbon-done .ribbon-heart-popup { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+.popup-heart-glow { color: #8fffff; font-size: 34px; filter: drop-shadow(0 0 15px #4aeaf4); animation: cyan-heart-pulse 1.8s ease-in-out infinite; }
+.ribbon-heart-popup strong { color: #f4ffff; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; }
+.ribbon-heart-popup small { max-width: 220px; color: #bce7e8; line-height: 1.45; }
+.ribbon-done .ribbon-cover { opacity: .28; filter: blur(1px); }
+.ribbon-done .ribbon-burst b { display: none; }
+
+/* Flaticon cake cutting reveal */
+.cake-stage { position: relative; overflow: hidden; }
+.cake-main-art, .cake-slice-art { position: absolute; left: 50%; top: 50%; width: min(72%, 420px); height: auto; object-fit: contain; transform: translate(-50%,-50%); }
+.cake-main-art { opacity: 1; animation: cake-breathe 3.8s ease-in-out infinite; transition: opacity .55s ease, transform .7s var(--ease), filter .55s ease; }
+.cake-slice-art { opacity: 0; transform: translate(-50%,-30%) scale(.58) rotate(-6deg); filter: drop-shadow(0 18px 14px rgba(0,0,0,.3)); }
+.cake-is-cut .cake-main-art { opacity: 0; transform: translate(-50%,-50%) scale(.82) rotate(-3deg); filter: blur(3px); }
+.cake-is-cut .cake-slice-art { animation: cake-slice-pop 1.05s var(--ease) .95s both; }
+@keyframes cake-slice-pop { 0% { opacity: 0; transform: translate(-50%,-22%) scale(.45) rotate(-12deg); } 60% { opacity: 1; transform: translate(-50%,-56%) scale(1.08) rotate(3deg); } 100% { opacity: 1; transform: translate(-50%,-50%) scale(1) rotate(0); } }
+.firework { position: absolute; z-index: 9; color: #8fffff; font-size: 22px; opacity: 0; text-shadow: 0 0 16px currentColor; pointer-events: none; }
+.cake-is-cut .firework { animation: firework-pop 1.3s ease-out .25s both; }
+.firework-one { left: 18%; top: 22%; }.firework-two { right: 18%; top: 32%; color: #ffb9e3; animation-delay: .5s !important; }
+@keyframes firework-pop { 0% { opacity: 0; transform: scale(.2); } 30% { opacity: 1; transform: scale(1.8); } 100% { opacity: 0; transform: scale(3.4); } }
+
+/* Candle flame is replaced by a no-flame SVG and a rising smoke plume */
+.candles-out .smoke { opacity: 1; }
+.smoke { opacity: 0; transition: opacity .25s ease .15s; }
+.smoke i { background: #d8eff2; box-shadow: 0 0 10px #9ce7ff; }
+.candles-out .candle-vector { animation: candle-blow 1.05s var(--ease) both; }
+
+/* Make the five chapter interfaces easier to scan */
+.chapter-heading h2 { font-weight: 600; }
+.chapter-heading > p:last-child { font-size: 14px; }
+.orbit-copy h3, .notes-drawer h3, .ribbon-side h3, .choice-intro h3, .mode-copy h3, .oops-panel h3, .gift-copy h3 { font-weight: 600; }
+@media (max-width: 520px) {
+  .brand-heart { width: 38px; height: 38px; }
+  .brand-lockup small { font-size: 15px; }
+  .heart-slider { width: 112px; height: 98px; }
+  .ribbon-heart-popup { width: 280px; min-height: 196px; padding: 48px 28px 22px; }
+  .ribbon-heart-popup strong { font-size: 24px; }
+  .cake-main-art, .cake-slice-art { width: 88%; }
+  .chapter-heading > p:last-child { font-size: 13px; }
+}
