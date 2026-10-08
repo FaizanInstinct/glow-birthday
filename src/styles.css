@@ -316,3 +316,41 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
   .ring-attribution { right: 2%; bottom: 2%; font-size: 8px; }
   .ring-hand-scene .ring-complete { bottom: 14%; }
 }
+
+/* FINAL GIFT MODAL CHOREOGRAPHY */
+.finale-backdrop { padding: 16px; }
+.finale-popover { width: min(760px, 100%); max-height: min(92svh, 760px); padding: 24px 24px 18px; overflow: hidden; }
+.finale-popover > .gift-spark { width: 42px; height: 42px; margin-bottom: 8px; font-size: 20px; }
+.finale-popover > small { font-size: 9px; }
+.finale-popover > h3 { margin: 8px 0 0; font-size: clamp(30px, 4vw, 46px); }
+.finale-popover .ring-hand-scene { position: relative; inset: auto; width: 100%; min-height: 465px; margin-top: 4px; background: radial-gradient(circle at 50% 45%, rgba(255,159,206,.13), transparent 40%); animation: none; }
+.finale-popover .hand-halo { width: 62%; height: 48%; opacity: .65; }
+.finale-popover .flaticon-sequence { inset: 2% 3% 13%; }
+.finale-popover .ring-asset { width: min(270px, 52%); }
+/* Two supplied images approach from opposite sides before meeting. */
+.finale-popover .asset-hand-ring { opacity: 1; transform: translateX(-135%) rotate(-8deg) scale(.8); animation: finale-left-approach 1.55s var(--ease) .35s forwards; }
+.finale-popover .asset-proposal-ring { opacity: 0; transform: translateX(135%) rotate(8deg) scale(.8); animation: finale-right-approach 1.55s var(--ease) .35s forwards; }
+/* The hands/ring pair fades away as the glow starts. */
+.finale-popover .asset-hand-ring, .finale-popover .asset-proposal-ring { transition: opacity .55s ease, transform .55s ease, filter .55s ease; }
+.finale-popover .asset-wedding-hands { z-index: 5; opacity: 0; transform: translateY(18px) scale(.88); }
+.finale-popover .ring-hand-scene.ring-placed::after { content: ''; position: absolute; z-index: 6; inset: 0; background: radial-gradient(circle at 50% 46%, rgba(255,237,176,.9), rgba(255,215,150,.2) 24%, transparent 58%); pointer-events: none; animation: finale-glow-hold 1.7s ease both; }
+.finale-popover .ring-hand-scene.ring-placed .asset-hand-ring, .finale-popover .ring-hand-scene.ring-placed .asset-proposal-ring { opacity: 0; transform: scale(.6); filter: blur(3px); }
+.finale-popover .ring-hand-scene.ring-placed .asset-wedding-hands { opacity: 1; transform: translateY(0) scale(1); animation: finale-placement-reveal 1.05s var(--ease) 1.45s both; }
+.finale-popover .ring-hand-scene.ring-placed .ring-instruction { opacity: 0; }
+.finale-popover .ring-hand-scene .ring-complete { z-index: 8; bottom: 3%; width: min(94%, 560px); white-space: normal; text-align: center; opacity: 0; }
+.finale-popover .ring-hand-scene.ring-placed .ring-complete { opacity: 1; transform: translate(-50%,0); transition-delay: 2.25s; }
+.finale-popover .ring-complete strong { font-size: clamp(24px, 4vw, 34px); color: #fff8fd; }
+.finale-popover .ring-complete small { max-width: 430px; color: #e9d8e8; line-height: 1.5; }
+.finale-popover .ring-attribution { bottom: 1%; right: 1%; }
+@keyframes finale-left-approach { 0% { opacity: 0; transform: translateX(-135%) rotate(-8deg) scale(.8); } 18% { opacity: 1; } 78% { opacity: 1; transform: translateX(-5%) rotate(-2deg) scale(.96); } 100% { opacity: .94; transform: translateX(0) rotate(0) scale(1); } }
+@keyframes finale-right-approach { 0% { opacity: 0; transform: translateX(135%) rotate(8deg) scale(.8); } 18% { opacity: 1; } 78% { opacity: 1; transform: translateX(5%) rotate(2deg) scale(.96); } 100% { opacity: .94; transform: translateX(0) rotate(0) scale(1); } }
+@keyframes finale-glow-hold { 0% { opacity: 0; transform: scale(.75); } 20% { opacity: 1; transform: scale(1); } 75% { opacity: .85; } 100% { opacity: 0; transform: scale(1.15); } }
+@keyframes finale-placement-reveal { 0% { opacity: 0; transform: translateY(18px) scale(.84); filter: blur(5px) drop-shadow(0 0 0 transparent); } 55% { opacity: 1; transform: translateY(-3px) scale(1.03); filter: blur(0) drop-shadow(0 0 30px #fff0b2); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0) drop-shadow(0 0 16px #ffe2a1); } }
+@media (max-width: 520px) {
+  .finale-popover { padding: 18px 12px 12px; }
+  .finale-popover .ring-hand-scene { min-height: 435px; }
+  .finale-popover .ring-asset { width: 68%; }
+  .finale-popover .ring-complete { bottom: 4%; }
+  .finale-popover .ring-complete small { font-size: 10px; }
+  .finale-popover .ring-attribution { font-size: 7px; }
+}
