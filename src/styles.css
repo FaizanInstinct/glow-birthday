@@ -396,3 +396,30 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
   from { opacity: 0; transform: translateX(0) scale(.96); }
   to { opacity: 0; transform: translateX(0) scale(.82); filter: blur(3px); }
 }
+
+/* ASSET ORDER CORRECTION: proposal ring first, lady's ring-wearing hand second */
+.finale-popover .asset-proposal-ring {
+  opacity: 0;
+  transform: translateX(-135%) rotate(-4deg) scale(.8);
+  animation: finale-ring-first 1.8s var(--ease) .25s forwards;
+}
+.finale-popover .asset-hand-ring {
+  opacity: 0;
+  transform: translateX(135%) rotate(-14deg) scale(.8);
+  animation: finale-lady-hand-second 1.8s var(--ease) 2.25s forwards;
+}
+@keyframes finale-ring-first {
+  0% { opacity: 0; transform: translateX(-135%) rotate(-4deg) scale(.8); }
+  18% { opacity: 1; }
+  63% { opacity: 1; transform: translateX(-3%) rotate(0deg) scale(1); }
+  82% { opacity: .45; transform: translateX(0) rotate(0deg) scale(1); }
+  100% { opacity: 0; transform: translateX(0) rotate(0deg) scale(.96); }
+}
+/* The lady's hand is intentionally tilted toward the left as it travels in. */
+@keyframes finale-lady-hand-second {
+  0% { opacity: 0; transform: translateX(135%) rotate(-18deg) scale(.8); }
+  18% { opacity: 1; }
+  63% { opacity: 1; transform: translateX(3%) rotate(-18deg) scale(1); }
+  82% { opacity: .45; transform: translateX(0) rotate(-16deg) scale(1); }
+  100% { opacity: 0; transform: translateX(0) rotate(-14deg) scale(.96); }
+}
