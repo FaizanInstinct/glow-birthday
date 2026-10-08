@@ -354,3 +354,45 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
   .finale-popover .ring-complete small { font-size: 10px; }
   .finale-popover .ring-attribution { font-size: 7px; }
 }
+
+/* FINAL FINALE TIMELINE FIX: one supplied image at a time */
+.finale-popover .asset-hand-ring {
+  opacity: 0;
+  transform: translateX(-135%) rotate(-10deg) scale(.8);
+  animation: finale-left-clean 1.8s var(--ease) .25s forwards;
+}
+.finale-popover .asset-proposal-ring {
+  opacity: 0;
+  transform: translateX(135%) rotate(-14deg) scale(.8);
+  animation: finale-right-clean 1.8s var(--ease) 2.25s forwards;
+}
+.finale-popover .asset-wedding-hands {
+  opacity: 0;
+  transform: translateY(20px) scale(.82);
+  animation: none;
+}
+/* Keep the two approach images fully hidden until their own phase begins. */
+.finale-popover .asset-hand-ring,
+.finale-popover .asset-proposal-ring,
+.finale-popover .asset-wedding-hands { will-change: transform, opacity, filter; }
+.finale-popover .ring-hand-scene.ring-placed .asset-hand-ring,
+.finale-popover .ring-hand-scene.ring-placed .asset-proposal-ring { animation: finale-approach-dismiss .45s ease both; }
+.finale-popover .ring-hand-scene.ring-placed .asset-wedding-hands { animation: finale-placement-reveal 1.05s var(--ease) 1.35s both; }
+@keyframes finale-left-clean {
+  0% { opacity: 0; transform: translateX(-135%) rotate(-10deg) scale(.8); }
+  18% { opacity: 1; }
+  63% { opacity: 1; transform: translateX(-3%) rotate(-2deg) scale(1); }
+  82% { opacity: .45; transform: translateX(0) rotate(0deg) scale(1); }
+  100% { opacity: 0; transform: translateX(0) rotate(0deg) scale(.96); }
+}
+@keyframes finale-right-clean {
+  0% { opacity: 0; transform: translateX(135%) rotate(-14deg) scale(.8); }
+  18% { opacity: 1; }
+  63% { opacity: 1; transform: translateX(3%) rotate(-14deg) scale(1); }
+  82% { opacity: .45; transform: translateX(0) rotate(-12deg) scale(1); }
+  100% { opacity: 0; transform: translateX(0) rotate(-10deg) scale(.96); }
+}
+@keyframes finale-approach-dismiss {
+  from { opacity: 0; transform: translateX(0) scale(.96); }
+  to { opacity: 0; transform: translateX(0) scale(.82); filter: blur(3px); }
+}
