@@ -527,3 +527,17 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
 
 /* The chapter entrance animation creates a fixed-position containing block; release it for true viewport centering. */
 .chapter-content:has(.ribbon-wish-backdrop) { animation: none !important; transform: none !important; }
+
+
+/* FINAL LAYOUT FIXES */
+.ribbon-wish-modal .modal-close { z-index: 4; top: 112px; right: 106px; display: grid; place-items: center; }
+.ribbon-wish-modal .modal-close:hover { background: rgba(255,159,206,.16); transform: rotate(90deg); }
+.cake-stage { display: grid; place-items: center; overflow: hidden; min-height: 420px; }
+.cake-stage .cake-main-art { width: min(56%, 300px); max-height: 78%; object-fit: contain; }
+.cake-stage .cake-slice-art { width: min(28%, 150px); max-height: 44%; object-fit: contain; }
+.cake-stage .cake-main-art, .cake-stage .cake-slice-art { left: 50%; top: 50%; }
+@media (max-width: 720px) {
+  .cake-stage { min-height: 360px; }
+  .cake-stage .cake-main-art { width: min(68%, 270px); }
+  .cake-stage .cake-slice-art { width: min(38%, 135px); }
+}
