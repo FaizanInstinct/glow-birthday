@@ -489,3 +489,41 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
 
 .asset-attribution { position: absolute; right: 12px; bottom: 10px; z-index: 12; color: rgba(255,255,255,.52); font-size: 8px; letter-spacing: .03em; }
 .asset-attribution a { color: #bffcff; text-decoration: underline; text-underline-offset: 2px; }
+
+
+/* CENTERED WISH MODAL: same treatment as the constellation and finale popups */
+.ribbon-wish-backdrop { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; padding: 22px; background: rgba(8,4,19,.72); backdrop-filter: blur(14px); animation: backdrop-in .35s ease both; }
+.ribbon-wish-modal { position: relative; width: min(520px, 100%); padding: 42px 42px 36px; border: 1px solid rgba(255,255,255,.34); border-top: 3px solid #ff9fce; background: linear-gradient(145deg, rgba(44,20,67,.98), rgba(17,9,34,.99)); box-shadow: 0 30px 90px rgba(0,0,0,.48), 0 0 60px rgba(213,108,255,.2); text-align: center; animation: modal-in .6s var(--ease) both; }
+.wish-modal-heart { display: grid; place-items: center; width: 68px; height: 68px; margin: 0 auto 18px; color: #ffb6dd; font-size: 38px; filter: drop-shadow(0 0 18px rgba(255,159,206,.65)); animation: cyan-heart-pulse 2.1s ease-in-out infinite; }
+.ribbon-wish-modal small { color: #ffdca9; font-size: 10px; letter-spacing: .18em; }
+.ribbon-wish-modal h3 { margin: 16px 0 14px; color: #fffaff; font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5vw, 56px); line-height: .9; font-weight: 500; }
+.ribbon-wish-modal h3 em { color: #ff9fce; }
+.ribbon-wish-modal p { margin: 0 auto; max-width: 410px; color: var(--muted); font-size: 15px; line-height: 1.72; font-weight: 600; }
+.ribbon-wish-modal .modal-cta { margin-top: 22px; }
+.ribbon-stage .ribbon-heart-popup { display: none; }
+@media (max-width: 520px) {
+  .ribbon-wish-modal { padding: 36px 24px 28px; }
+  .ribbon-wish-modal p { font-size: 14px; line-height: 1.65; }
+}
+
+
+/* FINAL WISH HEART: scalable heart silhouette with centered, readable content */
+.brand-lockup small { color: #ffc7eb; }
+.ribbon-wish-modal { width: min(540px, 94vw); min-height: 540px; padding: 126px 86px 84px; border: 0; background: transparent; box-shadow: none; isolation: isolate; }
+.ribbon-wish-modal::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(145deg, rgba(44,20,67,.99), rgba(17,9,34,.99)); border: 1px solid rgba(255,255,255,.34); filter: drop-shadow(0 30px 50px rgba(0,0,0,.48)) drop-shadow(0 0 34px rgba(213,108,255,.2)); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 91 8 49C-5 35 1 13 16 9c15-4 27 4 34 15C57 13 69 5 84 9c15 4 21 26 8 40Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 91 8 49C-5 35 1 13 16 9c15-4 27 4 34 15C57 13 69 5 84 9c15 4 21 26 8 40Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
+.ribbon-wish-modal > * { position: relative; z-index: 1; }
+.ribbon-wish-modal .modal-close { top: 108px; right: 112px; }
+.ribbon-wish-modal .wish-modal-heart { margin-bottom: 12px; }
+.ribbon-wish-modal small { display: block; line-height: 1.35; }
+.ribbon-wish-modal h3 { margin: 12px 0 12px; }
+.ribbon-wish-modal p { max-width: 355px; color: #d5c8dc; font-size: 14px; line-height: 1.55; }
+.ribbon-wish-modal .modal-cta { margin-top: 16px; }
+@media (max-width: 520px) {
+  .ribbon-wish-modal { width: min(370px, 96vw); min-height: 430px; padding: 102px 48px 62px; }
+  .ribbon-wish-modal .modal-close { top: 86px; right: 68px; }
+  .ribbon-wish-modal p { max-width: 260px; font-size: 12px; line-height: 1.48; }
+  .ribbon-wish-modal h3 { font-size: 40px; }
+}
+
+/* The chapter entrance animation creates a fixed-position containing block; release it for true viewport centering. */
+.chapter-content:has(.ribbon-wish-backdrop) { animation: none !important; transform: none !important; }
