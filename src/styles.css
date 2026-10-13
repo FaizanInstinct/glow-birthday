@@ -541,3 +541,12 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
   .cake-stage .cake-main-art { width: min(68%, 270px); }
   .cake-stage .cake-slice-art { width: min(38%, 135px); }
 }
+
+
+/* Keep the full cake centered while it breathes; the previous keyframe replaced translate(-50%,-50%). */
+.cake-stage:not(.cake-is-cut) .cake-main-art { animation: cake-breathe-centered 3.8s ease-in-out infinite; }
+@keyframes cake-breathe-centered {
+  0%, 100% { transform: translate(-50%, calc(-50% + 3px)) rotate(-.5deg); }
+  50% { transform: translate(-50%, calc(-50% - 5px)) rotate(.5deg); }
+}
+.asset-attribution { display: none !important; }
