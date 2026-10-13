@@ -592,3 +592,14 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
   .ribbon-card.heart-slider { width: 100px; height: 88px; padding-top: 23px; }
   .ribbon-instruction { max-width: 260px; font-size: 11px; }
 }
+
+
+/* Keep the slider physically below the “Keep a little room for wonder” copy. */
+.ribbon-panel { row-gap: 48px; }
+.ribbon-side { position: relative; z-index: 3; padding-bottom: 22px; }
+.ribbon-stage { position: relative; z-index: 1; }
+@media (max-width: 900px) {
+  .ribbon-panel { gap: 44px; }
+  .ribbon-panel .ribbon-side { order: -1; margin-bottom: 14px; padding-bottom: 0; }
+  .ribbon-panel .ribbon-stage { margin-top: 0; }
+}
