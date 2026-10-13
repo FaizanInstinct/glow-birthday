@@ -550,3 +550,32 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
   50% { transform: translate(-50%, calc(-50% - 5px)) rotate(.5deg); }
 }
 .asset-attribution { display: none !important; }
+
+
+/* WISH SLIDER POLISH: navbar-heart silhouette in black, with a clean lower orbit lane */
+.ribbon-stage { padding-bottom: 150px; }
+.ribbon-cover { max-width: 500px; padding-right: 0; }
+.card-track { left: 13%; right: 13%; bottom: 8%; height: 92px; }
+.ribbon-card.heart-slider { width: 126px; height: 112px; padding: 30px 18px 12px; border: 0; background: transparent; box-shadow: none; clip-path: none; border-radius: 0; transform: translate(-50%, -50%) rotate(-2deg); overflow: visible; text-align: center; filter: none; }
+.ribbon-card.heart-slider::before { content: none; }
+.slider-heart-visual { position: absolute; z-index: -1; inset: 0; display: block; background: #08090e url('/hina-glow-heart.svg') center / 100% 100% no-repeat; filter: grayscale(1) brightness(.22) contrast(1.35) drop-shadow(0 9px 12px rgba(0,0,0,.42)); transition: filter .25s ease, transform .25s ease; }
+.ribbon-card.heart-slider strong, .ribbon-card.heart-slider small { position: relative; z-index: 2; display: block; margin: 0; text-align: center; }
+.ribbon-card.heart-slider strong { color: #fff4fb; font-size: 9px; letter-spacing: .12em; }
+.ribbon-card.heart-slider small { margin-top: 6px; color: #d9c9df; font-size: 9px; }
+.ribbon-card.heart-slider:active { transform: translate(-50%, -50%) rotate(0deg) scale(1.08); box-shadow: none; }
+.ribbon-card.heart-slider:active .slider-heart-visual, .ribbon-pumping .slider-heart-visual { transform: scale(1.08); filter: grayscale(1) brightness(.18) contrast(1.5) drop-shadow(0 0 16px rgba(255,255,255,.2)); }
+.ribbon-done .ribbon-card.heart-slider { transform: translate(-50%, -50%) rotate(2deg) scale(1.04); }
+@media (max-width: 900px) {
+  .ribbon-stage { padding-bottom: 164px; }
+  .ribbon-cover { max-width: 90%; }
+  .card-track { left: 10%; right: 10%; bottom: 7%; }
+}
+@media (max-width: 520px) {
+  .ribbon-stage { min-height: 520px; padding: 9% 7% 178px; }
+  .ribbon-cover { max-width: 100%; }
+  .card-track { left: 7%; right: 7%; bottom: 6%; height: 90px; }
+  .ribbon-card.heart-slider { width: 116px; height: 104px; padding-top: 28px; }
+}
+
+.ribbon-card.heart-slider { isolation: isolate; }
+.slider-heart-visual { z-index: 0; }
