@@ -579,3 +579,16 @@ body { font-family: 'Manrope', sans-serif; letter-spacing: .005em; }
 
 .ribbon-card.heart-slider { isolation: isolate; }
 .slider-heart-visual { z-index: 0; }
+
+
+/* FINAL RIBBON CLEANUP */
+.ribbon-card.heart-slider { width: 108px; height: 96px; padding: 25px 14px 10px; }
+.slider-heart-visual { inset: 2px; background-color: transparent; background-image: url('/hina-glow-heart.svg'); background-position: center; background-size: contain; background-repeat: no-repeat; filter: grayscale(1) brightness(.2) contrast(1.4) drop-shadow(0 8px 10px rgba(0,0,0,.4)); }
+.ribbon-card.heart-slider strong { font-size: 8px; }
+.ribbon-card.heart-slider small { font-size: 8px; }
+.ribbon-instruction { max-width: 330px; margin: 12px 0 0; color: #cdbbd5; font-size: 12px; line-height: 1.5; }
+.ribbon-done .ribbon-cover { opacity: .28; filter: blur(1px); }
+@media (max-width: 520px) {
+  .ribbon-card.heart-slider { width: 100px; height: 88px; padding-top: 23px; }
+  .ribbon-instruction { max-width: 260px; font-size: 11px; }
+}
